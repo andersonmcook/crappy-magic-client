@@ -15,7 +15,7 @@ Install Elm
 
 Install core packages
 
-`elm package install`
+`elm-package install`
 
 Install live recompiling
 
