@@ -1,0 +1,32 @@
+{
+  "item": {
+    "1234" : {
+      "title": "First Title",
+      "owner_name": "First Owner Name",
+      "owner_email": "First Owner Email",
+      "video_creator_name": "First Video Creator Name",
+      "video_creator_web_address": "1st vc web address",
+      "video_creator_email": "1st vc email",
+      "video_creator_instagram_handle": "1st vc insta",
+      "price": 666.69,
+      "description": "1st desc",
+      "materials": "1st materials",
+      "manufacture_info": "1st man info",
+      "mature_content": false
+    },
+    "9999" : {
+      "title": "Secon Title",
+      "owner_name": "Secon Owner Name",
+      "owner_email": "Secon Owner Email",
+      "video_creator_name": "Secon Video Creator Name",
+      "video_creator_web_address": "2nd vc web address",
+      "video_creator_email": "2nd vc email",
+      "video_creator_instagram_handle": "2nd vc insta",
+      "price": 420.42,
+      "description": "2nd desc",
+      "materials": "2nd materials",
+      "manufacture_info": "2nd man info",
+      "mature_content": true
+    }
+  }
+}

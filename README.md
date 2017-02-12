@@ -1,6 +1,6 @@
 # crappy-magic-client
 
-[Server Repo](https://github.com/calebgregory/crappy-magic-server)
+[Server Repo](https://github.com/calebgregory/crappy-magic)
 
 Requirements
 * [Node 6.0 or greater](https://nodejs.org/)
@@ -25,3 +25,22 @@ Run live compiling, open in browser, output to index.js, debug messages
 (Main.elm is placeholder name at the moment)
 
 `elm-live Main.elm --open --output=index.js --debug`
+
+
+API
+GET /item/:number
+  returns json formatted
+```{
+  title <String>,
+  owner_name <String>,
+  owner_email <String>,
+  video_creator_name <String>,
+  video_creator_web_address <String>,
+  video_creator_email <String>,
+  video_creator_instagram_handle <String>,
+  price <Float>,
+  description <String>,
+  materials <String>,
+  manufacture_info <String>,
+  mature_content <Boolean>
+}```
