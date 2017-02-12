@@ -5,6 +5,7 @@ import Html.Events exposing ( onClick, onInput )
 import Random
 import Http
 import Json.Decode as Decode exposing ( Decoder, field, succeed )
+import Json.Decode.Pipeline as DP exposing ( decode, required, optional, hardcoded )
 import Json.Encode as Encode
 
 --title <String>,
@@ -34,34 +35,34 @@ initialModel =
 
 type alias Item =
     { title : String
-    , ownerName : String
-    , ownerEmail : String
-    , videoCreatorName : String
-    , videoCreatorWebAddress : String
-    , videoCreatorEmail : String
-    , videoCreatorInstagramHandle : String
+    , owner_name : String
+    , owner_email : String
+    , video_creator_name : String
+    , video_creator_web_address : String
+    , video_creator_email : String
+    , video_creator_instagram_handle : String
     , price : Float
     , description : String
     , materials : String
-    , manufactureInfo : String
-    , matureContent : Bool
+    , manufacture_info : String
+    , mature_content : Bool
     }
 
 
 initialItem : Item
 initialItem =
   { title = "yo"
-  , ownerName = "hey"
-  , ownerEmail = "what"
-  , videoCreatorName = "sup"
-  , videoCreatorWebAddress = "sup"
-  , videoCreatorEmail = "sup"
-  , videoCreatorInstagramHandle = "sup"
+  , owner_name = "yo"
+  , owner_email = "yo"
+  , video_creator_name = "yo"
+  , video_creator_web_address = "yo"
+  , video_creator_email = "yo"
+  , video_creator_instagram_handle = "yo"
   , price = 666.66
-  , description = "sup"
-  , materials = "sup"
-  , manufactureInfo = "sup"
-  , matureContent = False
+  , description = "yo"
+  , materials = "yo"
+  , manufacture_info = "yo"
+  , mature_content = False
   }
 
 -- UPDATE
@@ -109,6 +110,43 @@ httpErrorToMessage error =
         _ ->
             ( toString error )
 
+
+-- COMMANDS
+
+
+getItemFromApi : String -> Cmd Msg
+getItemFromApi item =
+    ( Decode.succeed itemDecoder ) -- broken
+        |> Http.get ( "http://localhost:3000/item/" ++ item )
+        |> Http.send GetItem
+--getEntries =
+--    (Decode.list entryDecoder)
+--        |> Http.get entriesUrl
+--        |> Http.send NewEntries
+
+
+
+
+
+
+-- DECODER
+
+
+itemDecoder : Decoder Item
+itemDecoder =
+    DP.decode Item
+        |> DP.required "title" Decode.string
+        |> DP.required "owner_name" Decode.string
+        |> DP.required "owner_email" Decode.string
+        |> DP.required "video_creator_name" Decode.string
+        |> DP.required "video_creator_web_address" Decode.string
+        |> DP.required "video_creator_email" Decode.string
+        |> DP.required "video_creator_instagram_handle" Decode.string
+        |> DP.required "price" Decode.float
+        |> DP.required "description" Decode.string
+        |> DP.required "materials" Decode.string
+        |> DP.required "manufacture_info" Decode.string
+        |> DP.required "mature_content" Decode.bool
 
 
 
