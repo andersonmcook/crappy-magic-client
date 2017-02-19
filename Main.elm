@@ -116,13 +116,10 @@ httpErrorToMessage error =
 
 getItemFromApi : String -> Cmd Msg
 getItemFromApi item =
-    ( Decode.succeed itemDecoder ) -- broken
+    itemDecoder
         |> Http.get ( "http://localhost:3000/item/" ++ item )
         |> Http.send GetItem
---getEntries =
---    (Decode.list entryDecoder)
---        |> Http.get entriesUrl
---        |> Http.send NewEntries
+
 
 
 
@@ -155,9 +152,47 @@ itemDecoder =
 -- VIEW
 
 
+alert : Cmd Msg -> Maybe String -> Html Msg
+alert msg alertMessage =
+    case alertMessage of
+        Just message ->
+            h1 [ style [ ("color", "red") ] ] [ text message ]
+        Nothing -> text ""
+
+itemInformation : Item -> Html Msg
+itemInformation item =
+    ul []
+        [ li [][ text ("title: " ++ item.title)]
+        , li [][ text ("owner_name: " ++ item.owner_name)]
+        , li [][ text ("owner_email: " ++ item.owner_email)]
+        , li [][ text ("video_creator_name: " ++ item.video_creator_name)]
+        , li [][ text ("video_creator_web_address: " ++ item.video_creator_web_address)]
+        , li [][ text ("video_creator_email: " ++ item.video_creator_email)]
+        , li [][ text ("video_creator_instagram_handle: " ++ item.video_creator_instagram_handle)]
+        , li [][ text ("price: $" ++ toString(item.price))]
+        , li [][ text ("description: " ++ item.description)]
+        , li [][ text ("materials: " ++ item.materials)]
+        , li [][ text ("manufacture_info: " ++ item.manufacture_info)]
+        , li [][ text ("mature_content: " ++ toString(item.mature_content))]
+        ]
+
+
+videoPlayer : String -> Html Msg -- String will be a url
+videoPlayer url =
+    video [ autoplay True, controls True ][
+        source [ src "http://localhost:4002/videos/12345", type_ "video/mp4" ][]
+    ]
+
+
 view : Model -> Html Msg
-view item =
-  h1 [] [ text "hey" ]
+view model =
+    div []
+        [ p [] [ text (toString model.item) ]
+        , alert Cmd.none model.alertMessage
+        , itemInformation model.item
+        , videoPlayer "whatever"
+        ]
+
 --view model =
 --    div [ class "content" ]
 --        [ viewHeader "Buzzword Bingo"
@@ -186,7 +221,7 @@ view item =
 
 init : ( Model, Cmd Msg )
 init =
-    ( initialModel, Cmd.none )
+    ( initialModel, getItemFromApi "1234" )
 
 
 -- MAIN

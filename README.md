@@ -44,3 +44,9 @@ GET /item/:number
   manufacture_info <String>,
   mature_content <Boolean>
 }```
+
+GET /videos/12345
+```
+<video autoplay controls>
+  <source src="http://localhost:4002/videos/12345" type="video/mp4" />
+</video>```

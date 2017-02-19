@@ -13451,38 +13451,268 @@ var _elm_lang$http$Http$StringPart = F2(
 	});
 var _elm_lang$http$Http$stringPart = _elm_lang$http$Http$StringPart;
 
-var _andersonmcook$crappy_magic_client$Main$view = function (item) {
+var _andersonmcook$crappy_magic_client$Main$videoPlayer = function (url) {
 	return A2(
-		_elm_lang$html$Html$h1,
-		{ctor: '[]'},
+		_elm_lang$html$Html$video,
 		{
 			ctor: '::',
-			_0: _elm_lang$html$Html$text('hey'),
+			_0: _elm_lang$html$Html_Attributes$autoplay(true),
+			_1: {
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$controls(true),
+				_1: {ctor: '[]'}
+			}
+		},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$source,
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$src('http://localhost:4002/videos/12345'),
+					_1: {
+						ctor: '::',
+						_0: _elm_lang$html$Html_Attributes$type_('video/mp4'),
+						_1: {ctor: '[]'}
+					}
+				},
+				{ctor: '[]'}),
 			_1: {ctor: '[]'}
 		});
 };
+var _andersonmcook$crappy_magic_client$Main$itemInformation = function (item) {
+	return A2(
+		_elm_lang$html$Html$ul,
+		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$li,
+				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text(
+						A2(_elm_lang$core$Basics_ops['++'], 'title: ', item.title)),
+					_1: {ctor: '[]'}
+				}),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$li,
+					{ctor: '[]'},
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html$text(
+							A2(_elm_lang$core$Basics_ops['++'], 'owner_name: ', item.owner_name)),
+						_1: {ctor: '[]'}
+					}),
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$li,
+						{ctor: '[]'},
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html$text(
+								A2(_elm_lang$core$Basics_ops['++'], 'owner_email: ', item.owner_email)),
+							_1: {ctor: '[]'}
+						}),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$li,
+							{ctor: '[]'},
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html$text(
+									A2(_elm_lang$core$Basics_ops['++'], 'video_creator_name: ', item.video_creator_name)),
+								_1: {ctor: '[]'}
+							}),
+						_1: {
+							ctor: '::',
+							_0: A2(
+								_elm_lang$html$Html$li,
+								{ctor: '[]'},
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html$text(
+										A2(_elm_lang$core$Basics_ops['++'], 'video_creator_web_address: ', item.video_creator_web_address)),
+									_1: {ctor: '[]'}
+								}),
+							_1: {
+								ctor: '::',
+								_0: A2(
+									_elm_lang$html$Html$li,
+									{ctor: '[]'},
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html$text(
+											A2(_elm_lang$core$Basics_ops['++'], 'video_creator_email: ', item.video_creator_email)),
+										_1: {ctor: '[]'}
+									}),
+								_1: {
+									ctor: '::',
+									_0: A2(
+										_elm_lang$html$Html$li,
+										{ctor: '[]'},
+										{
+											ctor: '::',
+											_0: _elm_lang$html$Html$text(
+												A2(_elm_lang$core$Basics_ops['++'], 'video_creator_instagram_handle: ', item.video_creator_instagram_handle)),
+											_1: {ctor: '[]'}
+										}),
+									_1: {
+										ctor: '::',
+										_0: A2(
+											_elm_lang$html$Html$li,
+											{ctor: '[]'},
+											{
+												ctor: '::',
+												_0: _elm_lang$html$Html$text(
+													A2(
+														_elm_lang$core$Basics_ops['++'],
+														'price: $',
+														_elm_lang$core$Basics$toString(item.price))),
+												_1: {ctor: '[]'}
+											}),
+										_1: {
+											ctor: '::',
+											_0: A2(
+												_elm_lang$html$Html$li,
+												{ctor: '[]'},
+												{
+													ctor: '::',
+													_0: _elm_lang$html$Html$text(
+														A2(_elm_lang$core$Basics_ops['++'], 'description: ', item.description)),
+													_1: {ctor: '[]'}
+												}),
+											_1: {
+												ctor: '::',
+												_0: A2(
+													_elm_lang$html$Html$li,
+													{ctor: '[]'},
+													{
+														ctor: '::',
+														_0: _elm_lang$html$Html$text(
+															A2(_elm_lang$core$Basics_ops['++'], 'materials: ', item.materials)),
+														_1: {ctor: '[]'}
+													}),
+												_1: {
+													ctor: '::',
+													_0: A2(
+														_elm_lang$html$Html$li,
+														{ctor: '[]'},
+														{
+															ctor: '::',
+															_0: _elm_lang$html$Html$text(
+																A2(_elm_lang$core$Basics_ops['++'], 'manufacture_info: ', item.manufacture_info)),
+															_1: {ctor: '[]'}
+														}),
+													_1: {
+														ctor: '::',
+														_0: A2(
+															_elm_lang$html$Html$li,
+															{ctor: '[]'},
+															{
+																ctor: '::',
+																_0: _elm_lang$html$Html$text(
+																	A2(
+																		_elm_lang$core$Basics_ops['++'],
+																		'mature_content: ',
+																		_elm_lang$core$Basics$toString(item.mature_content))),
+																_1: {ctor: '[]'}
+															}),
+														_1: {ctor: '[]'}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		});
+};
+var _andersonmcook$crappy_magic_client$Main$alert = F2(
+	function (msg, alertMessage) {
+		var _p0 = alertMessage;
+		if (_p0.ctor === 'Just') {
+			return A2(
+				_elm_lang$html$Html$h1,
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$style(
+						{
+							ctor: '::',
+							_0: {ctor: '_Tuple2', _0: 'color', _1: 'red'},
+							_1: {ctor: '[]'}
+						}),
+					_1: {ctor: '[]'}
+				},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text(_p0._0),
+					_1: {ctor: '[]'}
+				});
+		} else {
+			return _elm_lang$html$Html$text('');
+		}
+	});
+var _andersonmcook$crappy_magic_client$Main$view = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$p,
+				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text(
+						_elm_lang$core$Basics$toString(model.item)),
+					_1: {ctor: '[]'}
+				}),
+			_1: {
+				ctor: '::',
+				_0: A2(_andersonmcook$crappy_magic_client$Main$alert, _elm_lang$core$Platform_Cmd$none, model.alertMessage),
+				_1: {
+					ctor: '::',
+					_0: _andersonmcook$crappy_magic_client$Main$itemInformation(model.item),
+					_1: {
+						ctor: '::',
+						_0: _andersonmcook$crappy_magic_client$Main$videoPlayer('whatever'),
+						_1: {ctor: '[]'}
+					}
+				}
+			}
+		});
+};
 var _andersonmcook$crappy_magic_client$Main$httpErrorToMessage = function (error) {
-	var _p0 = error;
-	switch (_p0.ctor) {
+	var _p1 = error;
+	switch (_p1.ctor) {
 		case 'NetworkError':
 			return 'Is the server running?';
 		case 'BadStatus':
-			return _elm_lang$core$Basics$toString(_p0._0.status);
+			return _elm_lang$core$Basics$toString(_p1._0.status);
 		case 'BadPayload':
-			return A2(_elm_lang$core$Basics_ops['++'], 'Decoding failed: ', _p0._0);
+			return A2(_elm_lang$core$Basics_ops['++'], 'Decoding failed: ', _p1._0);
 		default:
 			return _elm_lang$core$Basics$toString(error);
 	}
 };
 var _andersonmcook$crappy_magic_client$Main$update = F2(
 	function (msg, model) {
-		var _p1 = msg;
-		if (_p1._0.ctor === 'Ok') {
+		var _p2 = msg;
+		if (_p2._0.ctor === 'Ok') {
 			return {
 				ctor: '_Tuple2',
 				_0: _elm_lang$core$Native_Utils.update(
 					model,
-					{item: _p1._0._0}),
+					{item: _p2._0._0}),
 				_1: _elm_lang$core$Platform_Cmd$none
 			};
 		} else {
@@ -13492,7 +13722,7 @@ var _andersonmcook$crappy_magic_client$Main$update = F2(
 					model,
 					{
 						alertMessage: _elm_lang$core$Maybe$Just(
-							_andersonmcook$crappy_magic_client$Main$httpErrorToMessage(_p1._0._0))
+							_andersonmcook$crappy_magic_client$Main$httpErrorToMessage(_p2._0._0))
 					}),
 				_1: _elm_lang$core$Platform_Cmd$none
 			};
@@ -13500,14 +13730,6 @@ var _andersonmcook$crappy_magic_client$Main$update = F2(
 	});
 var _andersonmcook$crappy_magic_client$Main$initialItem = {title: 'yo', owner_name: 'yo', owner_email: 'yo', video_creator_name: 'yo', video_creator_web_address: 'yo', video_creator_email: 'yo', video_creator_instagram_handle: 'yo', price: 666.66, description: 'yo', materials: 'yo', manufacture_info: 'yo', mature_content: false};
 var _andersonmcook$crappy_magic_client$Main$initialModel = {item: _andersonmcook$crappy_magic_client$Main$initialItem, alertMessage: _elm_lang$core$Maybe$Nothing};
-var _andersonmcook$crappy_magic_client$Main$init = {ctor: '_Tuple2', _0: _andersonmcook$crappy_magic_client$Main$initialModel, _1: _elm_lang$core$Platform_Cmd$none};
-var _andersonmcook$crappy_magic_client$Main$main = _elm_lang$html$Html$program(
-	{
-		init: _andersonmcook$crappy_magic_client$Main$init,
-		view: _andersonmcook$crappy_magic_client$Main$view,
-		update: _andersonmcook$crappy_magic_client$Main$update,
-		subscriptions: _elm_lang$core$Basics$always(_elm_lang$core$Platform_Sub$none)
-	})();
 var _andersonmcook$crappy_magic_client$Main$Model = F2(
 	function (a, b) {
 		return {item: a, alertMessage: b};
@@ -13589,6 +13811,27 @@ var _andersonmcook$crappy_magic_client$Main$itemDecoder = A3(
 var _andersonmcook$crappy_magic_client$Main$GetItem = function (a) {
 	return {ctor: 'GetItem', _0: a};
 };
+var _andersonmcook$crappy_magic_client$Main$getItemFromApi = function (item) {
+	return A2(
+		_elm_lang$http$Http$send,
+		_andersonmcook$crappy_magic_client$Main$GetItem,
+		A2(
+			_elm_lang$http$Http$get,
+			A2(_elm_lang$core$Basics_ops['++'], 'http://localhost:3000/item/', item),
+			_andersonmcook$crappy_magic_client$Main$itemDecoder));
+};
+var _andersonmcook$crappy_magic_client$Main$init = {
+	ctor: '_Tuple2',
+	_0: _andersonmcook$crappy_magic_client$Main$initialModel,
+	_1: _andersonmcook$crappy_magic_client$Main$getItemFromApi('1234')
+};
+var _andersonmcook$crappy_magic_client$Main$main = _elm_lang$html$Html$program(
+	{
+		init: _andersonmcook$crappy_magic_client$Main$init,
+		view: _andersonmcook$crappy_magic_client$Main$view,
+		update: _andersonmcook$crappy_magic_client$Main$update,
+		subscriptions: _elm_lang$core$Basics$always(_elm_lang$core$Platform_Sub$none)
+	})();
 
 var Elm = {};
 Elm['Main'] = Elm['Main'] || {};
